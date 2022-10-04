@@ -1,0 +1,66 @@
+{% extends "apponline/plantilla_base.html" %}
+
+{% block style_block %}
+<style>
+  table.coder-table {
+    border:3px solid;
+  }
+  th,
+  td {
+    border:1px solid;
+    padding:5px 10px;
+  }
+</style>
+{% endblock style_block %}
+
+{% block contenido_base %}
+
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgabucai-DxNFn2Ufgf9tkj2apf1x2NnQQV7vVsyXnP9iemJinzVfAItiyn_iJgzL9fHtv6An8dMGhuLHiLFbW5e1NILmY6Yx2YFwtIa68qeRuUvcczFDPmnxqs9rrU4bD0ctIxmsJ21h_m0JecRYRdLGlByV2CYOoXtqW-iZaytQiauxwsh9R3aZ8U/s1148/Carteras%20BAN.png" width="1700" height="300" alt=""/><em><strong>
+  <section class="py-3 bg-light">
+    <div class="container px-5 my-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src=https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhnqYo1jgUbpU9UaFV2JIizf8lvhn2M6pf3D3Rd_N0LlZn0F7aUoBeDtulqaThs7g8ljth9EQvL_z8PT1N2TE3cwx-JDvm2BgYoXahU1_s2SZdt9NK2AQJVZSP9VOt7Tnln1Ej0q9YibKrooLINxWX_CDsqyQ_fj6kehLCaAVCHvkaQyjFLBpFJz9z7/s702/Opera%20Captura%20de%20pantalla_2022-10-04_050601_www.fotor.com.png alt="..." /></div>
+            <div class="col-lg-4">
+                <h2 class="fw-bolder"  >➤Principales Marcas Colaboradoras!</h2>
+                <p class="lead fw-normal text-muted mb-0">Dedicamos este espacio para enviarle un gran saludo a nuestras principales 
+                    empresas colaboradoras y distribuidoras de productos de tan alta calidad para asi cumplir con hasta el mas minimo requisito
+                    de nuestros tan amados clientes para siempre poder mantenernos en alta,bajo sus productos 100% originales.
+                    LOS QUEREMOS!
+                </p>
+                </div>
+            </div>
+        </section>
+<a href="{% url 'accesorios_formulario' %}"><h3 class="text-center">Crear accesorios!</h3></a>
+<br>
+<a href="{% url 'busqueda_accesorios_form' %}"><h3 class="text-center">Buscar Accesorios</h3></a>
+<br><br> 
+
+<h3>Carteras:</h3>
+
+<table class="coder-table">
+  <tbody>
+    <tr>
+      <th>
+        <strong>Nombre</strong>
+      </th>
+      <th>
+        <strong>Codigo</strong>
+      </th>
+      <th>
+        <strong>Stock</strong>
+      </th>
+    </tr>
+    {% for cartera in carteras %}
+    <tr>
+      <td>{{cartera.nombre}}</td>
+      <td>{{cartera.codigo}}</td>
+      <td>{{cartera.stock}}</td>
+      <td></td>
+      <td><a href="{% url 'eliminar_cartera' cartera.id %}">Eliminar</a></td>
+      <td><a href="{% url 'editar_cartera' cartera.id %}">Editar</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock contenido_base %}
